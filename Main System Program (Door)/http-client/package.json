@@ -1,0 +1,26 @@
+{
+  "name": "tutorial-05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/att_favoriot/IoT-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/att_favoriot/IoT-course/issues"
+  },
+  "homepage": "https://gitlab.com/att_favoriot/IoT-course#README",
+  "dependencies": {
+    "i2c-bus": "^1.2.2",
+    "mfrc522-rpi": "^1.0.8",
+    "oled-font-5x7": "^1.0.0",
+    "request": "^2.83.0",
+    "wiringpi-node": "^2.4.4"
+  }
+}

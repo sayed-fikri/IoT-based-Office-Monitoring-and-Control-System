@@ -1,0 +1,545 @@
+/*------------------------------------------------------------------------------
+  BerryIO default style settings
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+  Structure
+------------------------------------------------------------------------------*/
+
+body {
+  background: #000000 url('/images/layout/backgrounds/backdrop.png') repeat top left;
+  color: #bbbbbb;
+  padding: 0px;
+  margin: 0px;
+  font: 12px Lucida Sans Unicode, Georgia, sans-serif, Georgia, "Times New Roman", Times, serif;
+  line-height: 15px;
+}
+
+#main {
+  text-align: center;
+  min-height: 470px;
+  background: transparent url('/images/layout/logo.png') no-repeat center center;
+}
+
+.panel,
+.container {
+  border: 1px solid #666666;
+}
+
+.panel {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  margin: 0px 10px 20px 10px;
+  padding: 0px 10px 10px 10px;
+  background: #222222 url('/images/layout/backgrounds/pattern.png') repeat top left;
+}
+
+.container {
+  display: inline-block;
+  vertical-align: top;
+  margin: 3px;
+  background: #000000 url('/images/layout/backgrounds/pattern.png') repeat center center;
+}
+
+.group {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px 5px 0px 5px;
+}
+
+.not_too_wide {
+  width: 600px;
+}
+
+.divider {
+  clear: both;
+  height: 4px;
+}
+
+/*------------------------------------------------------------------------------
+  Menu
+------------------------------------------------------------------------------*/
+
+#menu {
+  text-align: center;
+  border: 1px solid #666666;
+  border-width: 0px 0px 1px 0px;
+  background-color: #000000;
+}
+
+#menu a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 10px 3px 10px;
+}
+
+#menu a:hover,
+#menu a.selected {
+  text-decoration: underline;
+}
+
+/*------------------------------------------------------------------------------
+  Generic Content
+------------------------------------------------------------------------------*/
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+img {
+  border: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+  font-weight: normal;
+  color: #ffffff;
+  text-align: inherit;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 36px;
+  padding: 15px 10px 25px 10px;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 16px;
+  line-height: 22px;
+  padding: 10px;
+  margin: 0px;
+}
+
+h2 small {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+h3 {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 8px 10px 2px 10px;
+  margin: 0px;
+}
+
+p {
+  padding: 8px 10px 8px 10px;
+  margin: 0px;
+}
+
+table {
+  font-size: 12px;
+  line-height: 15px;
+  margin: 6px 10px 10px 10px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: middle;
+  padding: 2px 4px 2px 4px;
+  font-size: inherit;
+}
+
+th {
+  color: #ffffff;
+}
+
+td.code {
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.top {
+  vertical-align: top;
+}
+
+.no_break {
+  white-space: nowrap;
+}
+
+#message {
+  padding-top: 140px;
+}
+
+form {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+textarea {
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+input[type=submit],
+input[type=button],
+.button {
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid #666666;
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  vertical-align: top;
+  margin: 3px;
+  background: #777777 url('/images/layout/backgrounds/pattern.png') repeat center center;
+}
+
+input[type=submit]:hover,
+input[type=button]:hover,
+.button:hover {
+  text-decoration: none;
+  color: #ffffff;
+  border-color: #dddddd;
+  background: #aaaaaa url('/images/layout/backgrounds/pattern.png') repeat center center;
+}
+
+select,
+.select {
+  height: 22px;
+  margin: 0px 0px 0px 10px;
+  padding: 0px;
+  color: #000000;
+  border: 1px solid #aaaaaa;
+  font-size: 10px;
+  background: #aaaaaa;
+}
+
+/*------------------------------------------------------------------------------
+  Bar Chart
+------------------------------------------------------------------------------*/
+
+div.clickable_horizontal_bar,
+div.horizontal_bar {
+  font-size: 0px;
+  line-height: 0px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+div.horizontal_bar_outline {
+  background: #333333 url('/images/layout/backgrounds/pattern.png') repeat center center;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  height: 10px;
+  border: 1px solid #aaaaaa;
+  margin: 0px 8px 0px 0px;
+}
+
+div.clickable_horizontal_bar div.horizontal_bar_outline {
+  margin: 5px 17px 5px 10px;
+}
+
+span.horizontal_bar_fill {
+  display: block;
+  height: 10px;
+  background: #0000ff url('/images/layout/backgrounds/pattern.png') repeat center center;
+}
+
+img.horizontal_bar_slider {
+  cursor: pointer;
+  position: absolute;
+  top: -8px;
+  padding: 2px 10px 2px 10px;
+}
+
+div.horizontal_bar_value {
+  float: right;
+  width: 30px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+div.clickable_horizontal_bar div.horizontal_bar_value {
+  line-height: 22px;
+}
+
+/*------------------------------------------------------------------------------
+  Toggle
+------------------------------------------------------------------------------*/
+
+div.toggle_horizontal_on_off {
+  position: relative;
+  width: 56px;
+  height: 22px;
+  padding: 0px 10px 0px 10px;
+}
+
+div.toggle_horizontal_on_off div.on,
+div.toggle_horizontal_on_off div.off {
+  position: absolute;
+  top: 0px;
+  height: 22px;
+  cursor: pointer;
+}
+
+div.toggle_horizontal_on_off div.off {
+  left: 0px;
+  width: 30px;
+}
+
+div.toggle_horizontal_on_off div.on {
+  right: 0px;
+  width: 26px;
+}
+
+/*------------------------------------------------------------------------------
+  CPU
+------------------------------------------------------------------------------*/
+
+div.cpu_status {
+  min-height: 155px;
+  min-width: 450px;
+}
+
+div.cpu_status table {
+  margin: 6px auto 10px auto;
+}
+
+/*------------------------------------------------------------------------------
+  Disk
+------------------------------------------------------------------------------*/
+
+div.disk_partitions {
+  min-height: 155px;
+  min-width: 450px;
+}
+
+div.disk_partitions table {
+  margin: 6px auto 10px auto;
+}
+
+/*------------------------------------------------------------------------------
+  Memory
+------------------------------------------------------------------------------*/
+
+div.memory_locations {
+  min-height: 195px;
+  min-width: 450px;
+}
+
+div.memory_locations table {
+  margin: 6px auto 10px auto;
+}
+
+/*------------------------------------------------------------------------------
+  Main Board
+------------------------------------------------------------------------------*/
+
+div.board_information {
+  min-height: 220px;
+  width: 450px;
+}
+
+div.board_information table {
+  margin: 6px auto 10px auto;
+}
+
+/*------------------------------------------------------------------------------
+  Networking
+------------------------------------------------------------------------------*/
+
+div.network_interface {
+  height: 320px;
+}
+
+img.network_interface {
+  width: 100px;
+  height: 100px;
+}
+
+/*------------------------------------------------------------------------------
+  SPI Analogue
+------------------------------------------------------------------------------*/
+
+div.spi_analogue {
+  width: 280px;
+}
+
+div.spi_analogue table {
+  margin: 6px auto 10px auto;
+}
+
+/*------------------------------------------------------------------------------
+  GPIO
+------------------------------------------------------------------------------*/
+
+div.gpio_pins {
+  width: 450px;
+  height: 200px;
+}
+
+div.gpio_pins h2 {
+  padding-bottom: 2px;
+}
+
+div.gpio_pins h3 {
+  font-size: 13px;
+  padding: 2px 10px 10px 10px;
+}
+
+img.gpio_value {
+  margin-top: 5px;
+  width: 38px;
+  height: 38px;
+}
+
+div.gpio_mode {
+  position: relative;
+  width: 108px;
+  height: 50px;
+  padding: 5px;
+}
+
+div.gpio_toggle {
+  position: relative;
+  width: 108px;
+  height: 77px;
+  padding: 0px 5px 0px 5px;
+}
+
+div.gpio_mode div.not_exported,
+div.gpio_mode div.in,
+div.gpio_mode div.out,
+div.gpio_toggle div.on,
+div.gpio_toggle div.off {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  font-size: 1000px;
+  /* IE bug fix */
+  overflow: hidden;
+}
+
+div.gpio_mode div.not_exported {
+  top: 5px;
+  left: 0px;
+  width: 40px;
+  height: 50px;
+}
+
+div.gpio_mode div.in {
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 20px;
+}
+
+div.gpio_mode div.out {
+  bottom: 2px;
+  right: 0px;
+  width: 40px;
+  height: 20px;
+}
+
+div.gpio_toggle div.on {
+  top: 0px;
+  left: 34px;
+  width: 50px;
+  height: 30px;
+}
+
+div.gpio_toggle div.off {
+  bottom: 0px;
+  left: 34px;
+  width: 50px;
+  height: 30px;
+}
+
+/*------------------------------------------------------------------------------
+  LCD
+------------------------------------------------------------------------------*/
+
+#lcd_output {
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/*------------------------------------------------------------------------------
+  CAMERA
+------------------------------------------------------------------------------*/
+
+div.camera_viewfinder {
+  padding: 10px;
+  line-height: 0px;
+}
+
+div.camera_thumbnails {
+  width: 1000px;
+  overflow: auto;
+  white-space: nowrap;
+  font-size: 0px;
+}
+
+div.camera_thumbnails img {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+div.camera_thumbnails div.thumbnail {
+  position: relative;
+  display: inline-block;
+  padding: 0px 10px 0px 10px;
+}
+
+div.camera_thumbnails img.delete_button {
+  position: absolute;
+  top: -10px;
+  right: -5px;
+}
+
+div.camera_controls {
+  width: 290px;
+}
+
+div.camera_controls th {
+  width: 90px;
+  color: #000000;
+  height: 25px;
+  text-align: right;
+  padding-right: 0px;
+}
+
+#camera_trigger_img {
+  cursor: pointer;
+  padding: 17px 10px 9px 10px;
+}
+
+/*------------------------------------------------------------------------------
+  USAGE
+------------------------------------------------------------------------------*/
+
+div.usage {
+  width: 592px;
+}

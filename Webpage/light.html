@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IoT-Based Office Monitoring and Control System</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="doc-type" content="Web Page" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<style>
+     body {  
+            background-image: url("things.png");
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+</style>
+
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <br><a span class="glyphicon glyphicon-home" href="index.php"></a>
+              </div>
+      
+          <ul class="nav navbar-nav navbar-right">
+            <li><a onClick=loginView() href="#"><span class="glyphicon glyphicon-log-in"></span></a></li>
+          </ul>
+        </div>
+      </nav>
+<body>
+    <div id="main">
+        <br>
+        <br>
+        <h1 id="title">
+            IoT-Based Office Monitoring and Control System
+        </h1>
+        <br>
+        <br>
+
+        <div class="panel" style="text-align:center">
+            <div class="col-sm-6"style="text-align:center">
+                <h2>Fluorescent Lighting </h2>
+
+
+                <div class="container gpio_pins center">
+                    <div class="row">
+                        <div class="col-xs-3">
+                         <br><p>LIGHTING STATUS 1</p>
+                            <br>
+                            <br>
+                            <img id="led1Indicator" src="images/indicator/1.png" alt="indicator">
+                           
+                        </div>
+
+                        <div class="col-xs-3">
+                                <br><p>LIGHTING STATUS 2</p>
+                                   <br>
+                                   <br>
+                                   <img id="led2Indicator" src="images/indicator/1.png" alt="indicator">
+                                  
+                               </div>
+
+                        <div class="col-xs-3">
+                           <br> <p>LIGHTING CONTROL 1</p>
+                            <br>
+                            <img id="led1Control" src="images/button/vertical_on_off/1.png" alt="indicator">
+                        </div>
+
+                        <div class="col-xs-3">
+                                <br> <p>LIGHTING CONTROL 2</p>
+                                 <br>
+                                 <img id="led2Control" src="images/button/vertical_on_off/1.png" alt="indicator">
+                             </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div style="text-align:center">
+        <br><br><div class="panel not_too_wide" style="text-align:center">
+            <div class="divider"></div>
+            <h2>Credits</h2>
+            <p>
+                DanielBull @ https://github.com/NeonHorizon/berryio
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/control.js"></script>
+<script src="js/font.js"></script>
+<script src="js/paho-mqtt.js"></script>
+
+<script>
+    var mqtt = null;
+
+    // User API KEY
+    var apiKey ="";
+
+    // Device Developer ID
+    var devid = '';
+
+    $(document).ready(function () {
+        mqttConnect();
+    });
+
+    function mqttConnect() {
+        if (mqtt != null) {
+            mqtt.disconnect();
+            mqtt = null;
+        }
+        //mqtt = new Paho.MQTT.Client("mqtt.favoriot.com", Number(3000), "", 'mqttws_iot-00');
+        mqtt = new Paho.MQTT.Client("192.168.42.49", Number(3001), "/mqtt", 'mqttlightwebserver' + Math.random);
+        mqtt.onConnectionLost = onMqttConnectionLost;
+        mqtt.onMessageArrived = onMqttMessageArrived;
+        mqtt.connect({
+           // userName: apiKey,
+           // password: apiKey,
+            keepAliveInterval: 86400,
+            onSuccess: onMqttConnectSuccess,
+            onFailure: onMqttConnectFail,
+            reconnect: true
+        });
+
+        function onMqttConnectSuccess() {
+            console.log("MQTT > onMqttConnectSuccess");
+            $('#msg').text("MQTT > onMqttConnectSuccess");
+            mqtt.subscribe(apiKey + "/#");
+
+            var message = new Paho.MQTT.Message(JSON.stringify({
+                "msg": "Iot-Lighting Control Connected"
+            }));
+            message.destinationName = apiKey + "/io.data";
+            mqtt.send(message);
+        }
+
+        function onMqttConnectFail(res) {
+            console.error("MQTT > onMqttConnectFail :" + res.errorMessage);
+            $('#msg').text("MQTT > onMqttConnectFail :" + res.errorMessage);
+        }
+
+        function onMqttConnectionLost(responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.warn("MQTT > onMqttConnectionLost:" + responseObject.errorMessage);
+                $('#msg').text("MQTT > onMqttConnectionLost:" + responseObject.errorMessage);
+            } else {
+                $('#msg').text("MQTT > onMqttConnectionLost");
+            }
+        }
+
+        function onMqttMessageArrived(message) {
+            console.log(message.topic + ": " + message.payloadString);
+
+            var n = message.topic.indexOf('/')+1;
+            var topic = message.topic.substr(n);
+            $('#topic').text(topic);
+            $('#payload').text(message.payloadString);
+        }
+    }
+</script>
